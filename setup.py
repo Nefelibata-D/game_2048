@@ -5,8 +5,8 @@ with open("README.rst", "r", encoding='utf-8') as fh:
     long_description = fh.read()
 
 setup(
-    name="game-2048",
-    version="1.0.0",
+    name="pygame-2048",
+    version="1.1.0",
     author="Dai Zhengcheng",
     author_email="dzcheng827@gmail.com",
     description="A 2048 game ",
