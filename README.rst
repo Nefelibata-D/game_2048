@@ -46,9 +46,9 @@ Tips
 
 -  Screenshot will be saved to ' ~/Desktop/game-2048/screenshots '
 
-.. |pyversions| image:: https://img.shields.io/pypi/pyversions/2048-game.svg
-.. |license| image:: https://img.shields.io/pypi/l/2048-game.svg
-.. |pypi| image:: https://img.shields.io/pypi/v/2048-game.svg
-.. |status| image:: https://img.shields.io/pypi/status/2048-game.svg
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/game-2048.svg
+.. |license| image:: https://img.shields.io/pypi/l/game-2048.svg
+.. |pypi| image:: https://img.shields.io/pypi/v/game-2048.svg
+.. |status| image:: https://img.shields.io/pypi/status/game-2048.svg
 .. |github| image:: https://img.shields.io/github/watchers/dzc217/game_2048?style=social
 .. |game-2048.png| image:: https://www.z4a.net/images/2021/08/12/game.png
