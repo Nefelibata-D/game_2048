@@ -44,6 +44,8 @@ def output():
     print('')
     print(" - You can use ⬅  ⬆  ➡  ⬇  keys or 'AWSD' keys to remove the blocks on the screen ")
     print(" - Screenshot will be saved to ' ~/Desktop/game-2048/screenshots '")
+    print(" - You can't make 4096 block when you have two 2048 blocks.")
+    print("   So what you should do next is reset this game and start a new challenge.")
     print('')
     print(" That's all. Now, enkjoy yourself !")
     print('')

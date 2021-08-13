@@ -62,6 +62,9 @@ Tips
 
 -  Screenshot will be saved to ' ~/Desktop/game-2048/screenshots '
 
+- You can't make 4096 block when you have two 2048 blocks.
+  So what you should do next is reset this game and start a new challenge.
+
 .. |pyversions| image:: https://img.shields.io/pypi/pyversions/pygame-2048.svg
 .. |license| image:: https://img.shields.io/pypi/l/pygame-2048.svg
 .. |pypi| image:: https://img.shields.io/pypi/v/pygame-2048.svg
