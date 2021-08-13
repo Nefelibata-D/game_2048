@@ -21,7 +21,7 @@ class Scoreboard():
         self.ns_board_rect.top = self.bs_board_rect.bottom + 20
 
         self.text_color = (30, 30, 30)
-        self.font = pygame.font.Font('fonts/AmericanTypewriter.TTF', 36)
+        self.font = pygame.font.Font('fonts/AmericanTypewriter.TTF', 32)
 
     def prep_score(self):
         now_score = str(self.inf.score)
@@ -33,10 +33,10 @@ class Scoreboard():
         self.bs_rect = self.bs_image.get_rect()
 
         self.ns_rect.centerx = self.ns_board_rect.centerx + 20
-        self.ns_rect.centery = self.ns_board_rect.centery + 2
+        self.ns_rect.centery = self.ns_board_rect.centery
 
         self.bs_rect.centerx = self.bs_board_rect.centerx + 20
-        self.bs_rect.centery = self.bs_board_rect.centery + 2
+        self.bs_rect.centery = self.bs_board_rect.centery
 
     def draw_scoreboard(self):
         self.prep_score()
