@@ -6,3 +6,4 @@
 /dist
 /pygame_2048.egg-info
 *.bat
+*.ai

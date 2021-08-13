@@ -6,7 +6,7 @@ with open("README.rst", "r", encoding='utf-8') as fh:
 
 setup(
     name="pygame-2048",
-    version="1.3.0",
+    version="1.4.0",
     author="Dai Zhengcheng",
     author_email="dzcheng827@gmail.com",
     description="A 2048 game ",
