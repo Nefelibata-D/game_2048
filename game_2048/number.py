@@ -76,7 +76,7 @@ class Number:
                     new_list.append((none_zero_list[times], False))
                 break
         add_zero_list = self.add_zero(new_list, direction)
-        if add_zero_list == block_list:
+        if [i[0] for i in add_zero_list] == [i[0] for i in block_list]:
             same = True
         else:
             same = False

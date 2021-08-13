@@ -81,6 +81,7 @@ def run_game():
         number.row_list = process[0]
         number.column_list = process[1]
         inf.game_finish = inf_read['finish']
+        inf.game_over = inf_read['over']
         gf.creat_block(blocks, settings, screen, number)
     except KeyError:
         gf.random_create(number)

@@ -86,11 +86,12 @@ def row_move(blocks, settings, screen, number, direction, inf):
         changes.append(result[1])
         times += 1
     if False in changes:
-        try:
-            random_create(number)
-        except IndexError:
+        rest = random_create(number)
+        if rest == 0:
+            print('fuck')
             if check_game_over(number):
                 inf.game_over = True
+                creat_block(blocks, settings, screen, number)
                 return None
         number.row_to_column()
         blocks.empty()
@@ -108,11 +109,11 @@ def column_move(blocks, settings, screen, number, direction, inf):
         times += 1
     if False in changes:
         number.column_to_row()
-        try:
-            random_create(number)
-        except IndexError:
+        rest = random_create(number)
+        if rest == 0:
             if check_game_over(number):
                 inf.game_over = True
+                creat_block(blocks, settings, screen, number)
                 return None
         number.row_to_column()
         blocks.empty()
@@ -133,23 +134,30 @@ def check_keydown_event(event, settings, screen, number, blocks, inf):
 
 def random_create(number):
     available_list = []
+
     for i in number.row_list:
         if (0, False) in i:
             available_list.append(i)
-    row_list = random.choice(available_list)
 
-    times = 0
-    available_choice = []
-    for i in row_list:
-        if i[0] == 0:
-            available_choice.append(times)
-            times += 1
-        else:
-            times += 1
-            continue
+    if len(available_list) != 0:
+        row_list = random.choice(available_list)
+        times = 0
+        available_choice = []
 
-    index = random.choice(available_choice)
-    row_list[index] = random.choice([[2, 'Create'], [4, 'Create']])
+        for i in row_list:
+            if i[0] == 0:
+                available_choice.append(times)
+                times += 1
+            else:
+                times += 1
+                continue
+
+        index = random.choice(available_choice)
+        row_list[index] = random.choice([[2, 'Create'], [4, 'Create']])
+
+        return len(available_list) + len(available_choice) - 2
+    else:
+        return 0
 
 
 def check_need_transition(blocks):
@@ -192,7 +200,7 @@ def auto_save(inf, number):
     local_inf.seek(0)
     local_inf.truncate()
     process = [number.row_list, number.column_list]
-    save_inf = {'ns': inf.score, 'bs': inf.best_score, 'process': process, 'finish': inf.game_finish}
+    save_inf = {'ns': inf.score, 'bs': inf.best_score, 'process': process, 'finish': inf.game_finish, 'over': inf.game_over}
     base64_inf = base64.encodebytes(str(save_inf).encode('utf8'))
     local_inf.write(base64_inf.decode())
     local_inf.close()
@@ -238,6 +246,7 @@ def quit_game():
     local_history.truncate()
     local_history.close()
     os.remove('history.txt')
+    os.system('cls')
     sys.exit()
 
 
