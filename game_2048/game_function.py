@@ -123,11 +123,11 @@ def column_move(blocks, settings, screen, number, direction, inf):
 def check_keydown_event(event, settings, screen, number, blocks, inf):
     if event.key == pygame.K_LEFT or event.key == pygame.K_a:
         row_move(blocks, settings, screen, number, 1, inf)
-    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+    elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
         row_move(blocks, settings, screen, number, -1, inf)
-    if event.key == pygame.K_UP or event.key == pygame.K_w:
+    elif event.key == pygame.K_UP or event.key == pygame.K_w:
         column_move(blocks, settings, screen, number, 1, inf)
-    if event.key == pygame.K_DOWN or event.key == pygame.K_s:
+    elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
         column_move(blocks, settings, screen, number, -1, inf)
 
 

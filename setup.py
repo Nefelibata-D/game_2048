@@ -6,7 +6,7 @@ with open("README.rst", "r", encoding='utf-8') as fh:
 
 setup(
     name="pygame-2048",
-    version="1.1.0",
+    version="1.2.0",
     author="Dai Zhengcheng",
     author_email="dzcheng827@gmail.com",
     description="A 2048 game ",
@@ -14,7 +14,7 @@ setup(
     license="MIT License",
     url="https://github.com/dzc217/game_2048",
     packages=find_packages(),
-    package_data={'': ['*.png', '*.TTF']},
+    package_data={'': ['*.png', '*.TTF', 'inf.txt']},
     keyword=['game', '2048', 'pygame'],
     install_requires=[
         'pygame'
