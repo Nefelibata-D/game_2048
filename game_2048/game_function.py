@@ -10,8 +10,6 @@ from .block import Block
 
 def update_screen(settings, screen, blocks, scoreboard, button, inf, tips):
     screen.fill((187, 173, 160))
-    surface2 = screen.convert_alpha()
-    surface2.fill((225, 255, 255, 0))
     scoreboard.draw_scoreboard()
     update_tips(inf, settings, tips)
     if inf.roll_back_able:
