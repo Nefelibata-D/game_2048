@@ -88,13 +88,12 @@ def row_move(blocks, settings, screen, number, direction, inf):
         times += 1
     if False in changes:
         rest = random_create(number)
+        number.row_to_column()
         if rest == 0:
-            print('fuck')
             if check_game_over(number):
                 inf.game_over = True
                 creat_block(blocks, settings, screen, number)
                 return None
-        number.row_to_column()
         blocks.empty()
         creat_block(blocks, settings, screen, number)
         inf.roll_back_able = True
@@ -111,12 +110,12 @@ def column_move(blocks, settings, screen, number, direction, inf):
     if False in changes:
         number.column_to_row()
         rest = random_create(number)
+        number.row_to_column()
         if rest == 0:
             if check_game_over(number):
                 inf.game_over = True
                 creat_block(blocks, settings, screen, number)
                 return None
-        number.row_to_column()
         blocks.empty()
         creat_block(blocks, settings, screen, number)
         inf.roll_back_able = True
@@ -239,6 +238,7 @@ def check_button(settings, screen, number, blocks, inf, scoreboard, button, mous
         scoreboard.text_color = (30, 30, 30)
         random_create(number)
         random_create(number)
+        number.row_to_column()
         creat_block(blocks, settings, screen, number)
     if button.exit_rect.collidepoint(mouse_x, mouse_y):
         quit_game()
@@ -256,6 +256,7 @@ def quit_game():
 
 
 def check_game_over(number):
+
     for row in number.row_list:
         for i in range(0, 3):
             if row[i][0] == row[i + 1][0]:

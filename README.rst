@@ -70,4 +70,4 @@ Tips
 .. |pypi| image:: https://img.shields.io/pypi/v/pygame-2048.svg
 .. |status| image:: https://img.shields.io/pypi/status/pygame-2048.svg
 .. |github| image:: https://img.shields.io/github/watchers/dzc217/game_2048?style=social
-.. |game-2048.png| image:: https://www.z4a.net/images/2021/08/12/game.png
+.. |game-2048.png| image:: https://www.z4a.net/images/2021/08/14/game-2048.png
