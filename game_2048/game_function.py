@@ -4,6 +4,7 @@ import random
 import base64
 import time
 import os
+import platform
 
 from .block import Block
 
@@ -153,7 +154,7 @@ def random_create(number):
                 continue
 
         index = random.choice(available_choice)
-        row_list[index] = random.choice([[2, 'Create'], [4, 'Create']])
+        row_list[index] = random.choice([(2, 'Create'), (4, 'Create')])
 
         return len(available_list) + len(available_choice) - 2
     else:
@@ -227,7 +228,10 @@ def check_button(settings, screen, number, blocks, inf, scoreboard, button, mous
         auto_save(inf, number)
     if button.screen_shot_rect.collidepoint(mouse_x, mouse_y):
         t = time.strftime('%Y-%m-%d %H_%M_%S', time.localtime())
-        pygame.image.save(screen, desktop + '\{}.png'.format(t))
+        if platform.system().lower() == 'windows':
+            pygame.image.save(screen, desktop + '\{}.png'.format(t))
+        else:
+            pygame.image.save(screen, desktop + '/{}.png'.format(t))
     if button.reset_rect.collidepoint(mouse_x, mouse_y):
         number.reset()
         blocks.empty()
@@ -246,19 +250,20 @@ def quit_game():
     local_history.truncate()
     local_history.close()
     os.remove('history.txt')
-    os.system('cls')
+    if platform.system().lower() == 'windows':
+        os.system('cls')
     sys.exit()
 
 
 def check_game_over(number):
     for row in number.row_list:
         for i in range(0, 3):
-            if row[i] == row[i + 1]:
+            if row[i][0] == row[i + 1][0]:
                 return False
 
     for column in number.column_list:
         for i in range(0, 3):
-            if column[i] == column[i + 1]:
+            if column[i][0] == column[i + 1][0]:
                 return False
 
     return True

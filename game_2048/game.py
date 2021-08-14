@@ -30,13 +30,14 @@ def get_desktop():
         import winreg
         key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders')
         desktop = winreg.QueryValueEx(key, "Desktop")[0] + r'\game_2048\screenshot'
-    elif platform.system().lower() == 'mac':
+    elif platform.system().lower() == 'darwin':
         desktop = os.path.expanduser('~/Desktop/game_2048/screenshot')
-
+    
     return desktop
 
 def output():
-    os.system('cls')
+    if platform.system().lower() == 'windows':
+        os.system('cls')
     print('')
     print('')
     print('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =')
