@@ -61,19 +61,30 @@ class Number:
     def combine(self, block_list, direction, inf):
         none_zero_list = self.delete_zero(block_list)
         new_list = []
-        times = 0
+        if direction == 1:
+            times = 0
+        elif direction == -1:
+            times = -1
         while True:
             try:
-                if none_zero_list[times] == none_zero_list[times + 1]:
-                    new_list.append((none_zero_list[times] * 2, 'Combine'))
+                if none_zero_list[times] == none_zero_list[times + direction]:
+                    if direction == 1:
+                        new_list.append((none_zero_list[times] * 2, 'Combine'))
+                    else:
+                        new_list.insert(0, (none_zero_list[times] * 2, 'Combine'))
                     inf.score += none_zero_list[times] * 2
-                    times += 2
+                    times += 2 * direction
                 else:
-                    new_list.append((none_zero_list[times], False))
-                    times += 1
+                    if direction == 1:
+                        new_list.append((none_zero_list[times], False))
+                    else:
+                        new_list.insert(0, (none_zero_list[times], False))
+                    times += direction
             except IndexError:
-                if times == len(none_zero_list) - 1:
+                if times == len(none_zero_list) - 1 and direction == 1:
                     new_list.append((none_zero_list[times], False))
+                if times == -len(none_zero_list) and direction == -1:
+                    new_list.insert(0, (none_zero_list[times], False))
                 break
         add_zero_list = self.add_zero(new_list, direction)
         if [i[0] for i in add_zero_list] == [i[0] for i in block_list]:
