@@ -48,7 +48,7 @@ def output():
     print(" - You can't make 4096 block when you have two 2048 blocks.")
     print("   So what you should do next is reset this game and start a new challenge.")
     print('')
-    print(" That's all. Now, enkjoy yourself !")
+    print(" That's all. Now, enjoy yourself !")
     print('')
     print('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =')
 
