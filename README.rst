@@ -28,7 +28,7 @@ Installation
 
    .. code:: bash
 
-      $ game_2048
+      $ game-2048
 
 
 3. If you want to uninstall the game using the following command
@@ -51,7 +51,7 @@ Development
 
    .. code:: bash
 
-      $ game_2048
+      $ game-2048
 
 
 Tips
